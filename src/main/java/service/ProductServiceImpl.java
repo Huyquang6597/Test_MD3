@@ -187,11 +187,12 @@ public class ProductServiceImpl implements ProductService {
         }
 
     @Override
-    public List<Product> findAllByPrice(double findprice) {
+    public List<Product> findAllByPrice(double start , double end) {
         List<Product> productList = new ArrayList<>();
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("select * from product where price = ?");) {
-            preparedStatement.setDouble(1, findprice);
+             PreparedStatement preparedStatement = connection.prepareStatement("select * from product where price between ? and ?");) {
+            preparedStatement.setDouble(1, start);
+            preparedStatement.setDouble(2, end);
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
