@@ -7,4 +7,5 @@ import java.util.List;
 public interface ProductService extends GeneralService<Product>{
     List<Product>findAllByCategory(int categoriesId);
     List<Product> findAllByNameContains(String findName);
+    List<Product> findAllByPrice(double findPrice);
 }

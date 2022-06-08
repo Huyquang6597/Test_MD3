@@ -53,6 +53,10 @@
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="findName">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
+                    <form class="form-inline my-2 my-lg-0" action="/home">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="findPrice">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search By Price</button>
+                    </form>
                 </div>
             </nav>
         </div>
@@ -112,6 +116,7 @@
                     </tr>
                 </c:forEach>
                 </tbody>
+
             </table>
 
         </div>

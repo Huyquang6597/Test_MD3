@@ -25,6 +25,7 @@ public class HomeServlet extends HttpServlet {
 
         String categoryId = request.getParameter("categoryId");
         String findName = request.getParameter("findName");
+        String findPrice   = request.getParameter("findPrice");
         List<Category> categories = categoryService.findAll();
         request.setAttribute("categories", categories);
         List<Product> products = productService.findAll();
@@ -33,6 +34,9 @@ public class HomeServlet extends HttpServlet {
         }
         if (findName != null) {
             products = productService.findAllByNameContains(findName);
+        }
+        if (findPrice != null) {
+            products = productService.findAllByPrice(Double.parseDouble(findPrice));
         }
         request.setAttribute("products", products);
         request.getRequestDispatcher("index.jsp").forward(request, response);
