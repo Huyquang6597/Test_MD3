@@ -94,6 +94,13 @@
                             <%--<td>${pr.description}</td>--%>
                         <td>${pr.color}</td>
                         <td>${pr.category.name}</td>
+
+                        <td> <c:if test="${pr.price > 200}">
+                             Khuyến mãi 10%
+                        </c:if>
+                            <c:if test="${pr.price < 200}">
+                                 Khuyến mãi 20%
+                            </c:if></td>
                         <td>
                             <form action="/products" method="post" id="view${pr.id}" style="display: inline">
                                 <input type="hidden" name="act" value="view">
@@ -114,6 +121,7 @@
                             </form>
                         </td>
                     </tr>
+
                 </c:forEach>
                 </tbody>
 
